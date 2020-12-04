@@ -6,7 +6,7 @@ const port: number = 3000;
 
 const app = express();
 
-app.get("/:base64", (req, res) => {
+app.get("/decode/:base64", (req, res) => {
 	var decoded = base64.decode(req.params.base64);
 	var text = utf8.decode(decoded);
 	res.send(text);
@@ -16,6 +16,6 @@ app.get("*", (req, res) => {
     res.send('Please put a bse64 string into url.');
 });
 
-app.listen(port);
+app.listen(process.env.PORT || port);
 
-console.log("Now listening on port " + port);
+console.log("Now listening on port " + process.env.PORT || port);

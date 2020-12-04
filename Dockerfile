@@ -8,6 +8,7 @@ RUN npm ci --only=production
 
 COPY ./dist .
 
-EXPOSE 3000
+#uncomment if you need this.
+#EXPOSE 3000
 
 CMD ["node", "index.js"]
